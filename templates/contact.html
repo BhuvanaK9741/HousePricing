@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - House Price Predictor</title>
+    <link rel="stylesheet" href="../static/CSS/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-yzGHXgLpqD3zEd1WJHMEk8M4m9aBZxogzpFFnSUGFLFhVdQEE91/2ENpT1LzB+97G2CxMInRj3lPb0F0Xz4Q3w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Salary Predictor</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predict">Predict</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/methodology">Methodology</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contact-container">
+        <div class="contact-card">
+            <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+            <p>If you have any questions, feedback, or would like to collaborate, feel free to reach out!</p>
+
+            <form method="POST" action="#">
+                <label for="name"><i class="fas fa-user"></i> Your Name:</label>
+                <input type="text" name="name" required>
+
+                <label for="email"><i class="fas fa-at"></i> Your Email:</label>
+                <input type="email" name="email" required>
+
+                <label for="message"><i class="fas fa-comment-dots"></i> Your Message:</label>
+                <textarea name="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+
+            <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+</body>
+
+</html>

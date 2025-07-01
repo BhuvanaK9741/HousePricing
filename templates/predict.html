@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="../static/CSS/predict.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-yzGHXgLpqD3zEd1WJHMEk8M4m9aBZxogzpFFnSUGFLFhVdQEE91/2ENpT1LzB+97G2CxMInRj3lPb0F0Xz4Q3w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if prediction %}
+    <script>
+        Swal.fire({
+            title: '🏠 House Price Prediction',
+            icon: 'success',
+            html: 'Estimated Price: <strong style="color:#3498db;">${{ "%.2f"|format(prediction) }}</strong>',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#3498db',
+            background: '#fff',
+            color: '#2c3e50'
+        });
+    </script>
+    {% endif %}
+
+    {% if error %}
+    <script>
+        Swal.fire({
+            title: '⚠️ Error',
+            icon: 'error',
+            text: '{{ error }}',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#e74c3c',
+            background: '#fff',
+            color: '#2c3e50'
+        });
+    </script>
+    {% endif %}
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Salary Predictor</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/methodology">Methodology</a></li>
+                <li><a href="/contact" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h2><i class="fas fa-home"></i> House Price Prediction</h2>
+        <form method="POST">
+            <label><i class="fas fa-ruler-combined"></i> Area (sqft):</label>
+            <input type="number" name="area" required>
+
+            <label><i class="fas fa-bed"></i> Bedrooms:</label>
+            <input type="number" name="bedrooms" required>
+
+            <label><i class="fas fa-bath"></i> Bathrooms:</label>
+            <input type="number" name="bathrooms" required>
+
+            <label><i class="fas fa-building"></i> Stories:</label>
+            <input type="number" name="stories" required>
+
+            <label><i class="fas fa-road"></i> Main Road Access:</label>
+            <select name="mainroad">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label><i class="fas fa-user-friends"></i> Guest Room:</label>
+            <select name="guestroom">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label><i class="fas fa-warehouse"></i> Basement:</label>
+            <select name="basement">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label><i class="fas fa-water"></i> Hot Water Heating:</label>
+            <select name="hotwaterheating">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label><i class="fas fa-snowflake"></i> Air Conditioning:</label>
+            <select name="airconditioning">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label><i class="fas fa-car"></i> Parking Spaces:</label>
+            <input type="number" name="parking" required>
+
+            <label><i class="fas fa-star"></i> Preferred Area:</label>
+            <select name="prefarea">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label><i class="fas fa-couch"></i> Furnishing Status:</label>
+            <select name="furnishingstatus">
+                <option value="unfurnished">Unfurnished</option>
+                <option value="semi-furnished">Semi-Furnished</option>
+                <option value="furnished">Furnished</option>
+            </select>
+
+            <button class="btn" type="submit"><i class="fas fa-calculator"></i> Predict Price</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
